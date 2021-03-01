@@ -8,11 +8,22 @@ namespace ChallengesWithTestsMark8
     {
         public bool ArrayContainsAFalse(bool[] vals)
         {
-            foreach (bool item in vals)
+            for (int i = 0; i < vals.Length; i++)
             {
-                if (item) return true;
+                if (vals[i] == false)
+                {
+                    return true;
+                }
             }
             return false;
+            //foreach (bool item in vals)
+            //{
+            //    if (vals = bool.Parse(false))
+            //    {
+            //        return true;
+            //    }
+            //}
+            //return false;
         }
 
         public bool IsSumOfOddsOdd(IEnumerable<int> numbers)
@@ -26,12 +37,15 @@ namespace ChallengesWithTestsMark8
 
         public bool PasswordContainsUpperLowerAndNumber(string password)
         {
-            foreach (char c in password)
+            //created a bool variable for upper case, lower case, and digit.
+            bool containsUpper = password.Any(char.IsUpper);
+            bool containsLower = password.Any(char.IsLower);
+            bool containsNumber = password.Any(char.IsDigit);
+
+            //if statement that if you wanted true, then include all the variables above
+            if (containsUpper && containsLower && containsNumber)
             {
-                if (char.IsUpper(c) && char.IsLower(c) && char.IsDigit(c))
-                {
-                    return true;
-                }
+                return true;
             }
             return false;
 
